@@ -1,0 +1,1 @@
+insert into account(email,name,role,password) values('admin@gmail.com','admin',0,'$2a$10$l5H26Bd0MtpiTmDw3w9FSOgnHwKKP0u5kz5MyPmVLnWeSvMOuwip2');

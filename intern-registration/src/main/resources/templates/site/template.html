@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="ISO-8859-1">
+<title layout:title-pattern="$LAYOUT_TITLE  | $CONTENT_TITLE">INTERNSHIP</title>
+<link rel="stylesheet" th:href="@{/resources/css/bootstrap.min.css}"/>
+<link rel="stylesheet" th:href="@{/resources/css/font-awesome.min.css}"/>
+<script th:src="@{/resources/js/bootstrap.min.js}"></script>
+<script th:src="@{/resources/js/popper.min.js}"></script>
+<script th:src="@{/resources/js/jquery.min.js}"></script>
+</head>
+<body>
+ <nav class="navbar navbar-expand navbar-secondary bg-info d-flex justify-content-between">
+ 	<a th:href ="@{/}" class="navbar-brand"><i class="fa fa-home"></i>Home</a>
+ 	<div class="navbar-nav">
+ 		<a href="" class="nav-link"><i class="fa fa-send">Apply</i></a>
+ 		<a href="" class="nav-link" sec:authorize="hasRole('Admin')"><i class="fa fa-send">Applications</i></a>
+ 		<a href="" class="nav-link" sec:authorize="hasRole('Admin')"><i class="fa fa-check">Confirmations</i></a>
+ 		<a href="" class="nav-link" sec:authorize="hasRole('Admin')"><i class="fa fa-cogs">Configurations</i></a>
+ 		<a th:href="@{/sign-in}" class="nav-link" sec:authorize="isAnonymous()"><i class="fa fa-sign-in">Sign-in</i></a>
+ 		<a th:href="@{/sign-up}" class="nav-link" sec:authorize="isAnonymous()"><i class="fa fa-user-plus">Sign-up</i></a>
+ 		<a href="#" id="logout-menu" class="nav-link" sec:authorize="isAuthenticated()"><i class="fa fa-sign-out">Sign-out</i></a>
+ 	</div>
+ </nav>
+ <section layout:fragment="content" class="container">
+ <h1>Content</h1>
+ </section>
+ <form action="#" th:action="@{/logout}" method="post" class="d-none" id="logout-form"> </form>
+ <script>
+ $(()=> $('#logout-menu').click(() => $('#logout-form').submit()))
+ </script>
+
+</body>
+</html>
