@@ -15,7 +15,7 @@ public class WebConfig implements WebMvcConfigurer {
 		registry.addViewController("/sign-in").setViewName("/sign-in");
 		registry.addViewController("/sign-up").setViewName("/sign-up");
 	}
-	
+	//add resource
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/resources/**").addResourceLocations("classpath:/static/");
